@@ -74,6 +74,8 @@ namespace signpassnet
 			var signer = new CmsSigner(SubjectIdentifierType.SubjectKeyIdentifier, cert);
 			
 			signer.IncludeOption = X509IncludeOption.ExcludeRoot;
+			
+			signer.SignedAttributes.Add(new Pkcs9SigningTime(DateTime.Now));
 
             // TODO: You MUST visit this URL and download/install Apple's certificates
             // http://www.apple.com/certificateauthority/
